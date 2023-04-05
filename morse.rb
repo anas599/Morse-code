@@ -6,13 +6,14 @@ MORSE_CODE = {
 }.freeze
 
 def decode_morse(morse_code)
-morse_code
-    .split('   ')
-    .select do |char|
-      char != ''
-    end
+  morse_code
+    .strip
+    .split('  ')
     .map do |word|
-      word.split(' ').map { |char| MORSE_CODE[char] }.join
+      word
+        .split
+        .map { |char| MORSE_CODE[char] } # look up each letter in the MORSE_CODE hash
+        .join
     end
     .join(' ')
 end
