@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 MORSE_CODE = {
   '.-' => 'A', '-...' => 'B', '-.-.' => 'C', '-..' => 'D', '.' => 'E', '..-.' => 'F', '--.' => 'G',
   '....' => 'H', '..' => 'I', '.---' => 'J', '-.-' => 'K', '.-..' => 'L', '--' => 'M', '-.' => 'N',
@@ -19,9 +17,9 @@ def decode_morse(morse_code)
     .split('   ')
     .map do |word|
       word
-        .split(' ')
+        .split
         .map { |char| MORSE_CODE[char] } # look up each letter in the MORSE_CODE hash
-        .join('')
+        .join
     end
     .join(' ')
 end
