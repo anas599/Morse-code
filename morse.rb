@@ -12,7 +12,7 @@ def decode_morse(morse_code)
     .map do |word|
       word
         .split
-        .map { |char| MORSE_CODE[char] } # look up each letter in the MORSE_CODE hash
+        .map { |char| MORSE_CODE[char] } 
         .join
     end
     .join(' ')
