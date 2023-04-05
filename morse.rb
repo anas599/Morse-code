@@ -6,19 +6,16 @@ MORSE_CODE = {
 }.freeze
 
 def decode_morse(morse_code)
-  morse_code
-    .strip
-    .split('  ')
+morse_code
+    .split('   ')
+    .select do |char|
+      char != ''
+    end
     .map do |word|
-      word
-        .split
-        .map { |char| MORSE_CODE[char] } # look up each letter in the MORSE_CODE hash
-        .join
+      word.split(' ').map { |char| MORSE_CODE[char] }.join
     end
     .join(' ')
 end
 
-puts decode_morse('-- -.--   -. .- -- .')
 puts decode_morse('      .-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
-# => "MY NAME"
 # => "A BOX FULL OF RUBIES"
